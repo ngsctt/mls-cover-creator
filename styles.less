@@ -1,0 +1,221 @@
+@spine-width: 28.8mm;
+
+@page {
+  size: a4;
+}
+
+@font-face {
+    font-family: 'Droid Serif';
+    src: url('/fonts/droidserif-bold-webfont.woff2') format('woff2'), url('/fonts/droidserif-bold-webfont.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Source Sans Pro';
+    src: url('/fonts/sourcesanspro-semibold-webfont.woff2') format('woff2'), url('/fonts/sourcesanspro-semibold-webfont.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'Source Sans Pro';
+    src: url('/fonts/sourcesanspro-bold-webfont.woff2') format('woff2'), url('/fonts/sourcesanspro-bold-webfont.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+
+}
+
+:root {
+  color: #004083;
+  line-height: 1;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.page {
+  width: 210mm;
+  height: 297mm;
+  position: relative;
+
+  // @media print {
+  //   width: 100%;
+  //   height: 100%;
+  // }
+}
+
+.page.spines {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.spine {
+  width: @spine-width;
+  height: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.subj-code {
+  color: black;
+  font-family: Arial;
+}
+
+.subj-title {
+  font-family: 'Times New Roman';
+  font-weight: bold;
+  margin: 0;
+}
+
+.sem {
+  font-family: Arial;
+}
+
+
+.covers {
+  .triangle-blue {
+    position: absolute;
+    right: 0;
+    top: 0;
+    color: rgba(53, 160, 197, 0.25);
+    width: 150.5mm;
+    height: 90.5mm;
+  }
+
+  .triangle-orange {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    color: rgba(255, 147, 0, 0.25);
+    width: 80.5mm;
+    height: 100%;
+  }
+
+  .logo {
+    width: 41.6mm;
+    position: absolute;
+    left: 11.1mm;
+    top: 11.4mm;
+  }
+
+  .course {
+    font-family: 'Droid Serif';
+    font-weight: bold;
+    font-size: 25pt;
+    position: absolute;
+    left: 15.9mm;
+    top: 92mm;
+  }
+
+  .faculty {
+    position: absolute;
+    left: 150.6mm;
+    top: 42.2mm;
+    font-family: 'Source Sans Pro';
+    font-weight: 600;
+    font-size: 12.5pt;
+  }
+
+  .faculty-line {
+    border: none;
+    border-top: .1mm solid currentColor;
+    width: 4.5mm;
+    margin: 0;
+    margin-left: .2mm;
+    margin-bottom: 1.6mm;
+  }
+
+  .subj-code {
+    font-size: 15pt;
+    position: absolute;
+    left: 12.2mm;
+    top: 209.9mm;
+  }
+
+  .subj-title {
+    font-size: 16pt;
+    position: absolute;
+    left: 12.2mm;
+    top: 220mm;
+  }
+
+  .sem {
+    font-size: 11pt;
+    position: absolute;
+    left: 12.2mm;
+    top: 235.9mm;
+  }
+
+  .url {
+    font-family: 'Source Sans Pro';
+    font-weight: bold;
+    font-size: 11pt;
+    position: absolute;
+    left: 15.5mm;
+    top: 276.7mm;
+  }
+
+  .arrow {
+    width: 2.8mm;
+    transform: translate(0,.3mm);
+    margin-right: .5mm;
+  }
+}
+
+.spines {
+  .logo {
+    width: 24.5mm;
+    margin: 16mm auto 0;
+  }
+
+  .text {
+    height: @spine-width;
+    width: 200mm;
+    padding: 2mm 0 3mm;
+    margin: 14mm 0 0;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    align-items: center;
+    transform: rotate(90deg);
+    transform-origin: bottom left;
+    align-self: flex-start;
+  }
+
+  .subj-code {
+    font-size: 11pt;
+  }
+
+  .subj-title {
+    font-size: 20pt;
+  }
+
+  .sem {
+    font-size: 9pt;
+  }
+}
+
+.buttons {
+  position: fixed;
+  z-index: 10;
+  bottom: 0;
+  left: 0;
+
+  button {
+    margin: .5rem;
+  }
+
+  @media print {
+    display: none;
+  }
+}
